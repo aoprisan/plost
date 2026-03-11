@@ -159,6 +159,27 @@ export class BootScene extends Phaser.Scene {
     gatesBg.generateTexture('gates-of-hell-bg', 1280, 720);
     gatesBg.destroy();
 
+    // Chaos background — formless void, swirling darkness with elemental conflict
+    const chaosBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Deep void — near-black with shifting undertones
+      const r = Math.floor(5 + Math.sin(t * 3.14) * 12);
+      const g = Math.floor(5 + Math.sin(t * 2.5 + 1) * 8);
+      const b = Math.floor(8 + Math.sin(t * 2.0 + 2) * 10);
+      chaosBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      chaosBg.fillRect(0, y, 1280, 1);
+    }
+    // Faint elemental streaks
+    for (let i = 0; i < 8; i++) {
+      const streakY = 90 * i;
+      const colors = [0xc44a1a, 0x2244aa, 0x553322, 0x445544];
+      chaosBg.fillStyle(colors[i % 4], 0.04);
+      chaosBg.fillRect(0, streakY, 1280, 60);
+    }
+    chaosBg.generateTexture('chaos-bg', 1280, 720);
+    chaosBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);
