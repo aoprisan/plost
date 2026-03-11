@@ -1,10 +1,10 @@
 # Remaining Scenes
 
-Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumScene → CouncilScene → ???
+Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumScene → CouncilScene → GatesOfHellScene → ???
 
 ## Book II
 
-- [ ] **Gates of Hell** — Satan encounters Sin and Death, his own offspring, guarding Hell's gates. They open the way for him.
+- [x] **Gates of Hell** — Satan encounters Sin and Death, his own offspring, guarding Hell's gates. They open the way for him.
 - [ ] **Chaos** — Satan's perilous flight through the formless void between Hell and the created world.
 
 ## Book III
