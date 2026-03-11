@@ -101,26 +101,12 @@ export class LakeOfFireScene extends Phaser.Scene {
   }
 
   private onDialogueComplete(): void {
-    // Fade to black and show chapter end
-    const { width, height } = this.cameras.main;
-
     this.scene.stop('DialogueScene');
 
-    const endText = this.add.text(width / 2, height / 2, 'Book I: The Lake of Fire\n— To be continued —', {
-      fontFamily: 'Georgia, serif',
-      fontSize: '32px',
-      color: '#c4a45a',
-      align: 'center',
-    }).setOrigin(0.5).setAlpha(0);
-
+    // Transition to Pandemonium
     this.cameras.main.fadeOut(2000, 0, 0, 0);
     this.time.delayedCall(2000, () => {
-      this.cameras.main.fadeIn(1000, 0, 0, 0);
-      this.tweens.add({
-        targets: endText,
-        alpha: 1,
-        duration: 2000,
-      });
+      this.scene.start('PandemoniumScene');
     });
   }
 

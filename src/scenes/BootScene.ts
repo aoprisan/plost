@@ -95,6 +95,47 @@ export class BootScene extends Phaser.Scene {
     bgGraphics.generateTexture('lake-of-fire-bg', 1280, 720);
     bgGraphics.destroy();
 
+    // Pandemonium background — dark palace interior with golden tones
+    const pandBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(15 + t * 35);
+      const g = Math.floor(12 + t * 20);
+      const b = Math.floor(5 + t * 8);
+      pandBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      pandBg.fillRect(0, y, 1280, 1);
+    }
+    // Golden floor reflection
+    for (let y = 500; y < 720; y++) {
+      const t = (y - 500) / 220;
+      const r = Math.floor(100 + t * 96);
+      const g = Math.floor(80 + t * 64);
+      const b = Math.floor(30 + t * 20);
+      pandBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b), 0.2 + t * 0.3);
+      pandBg.fillRect(0, y, 1280, 1);
+    }
+    pandBg.generateTexture('pandemonium-bg', 1280, 720);
+    pandBg.destroy();
+
+    // Council chamber background — darker, more enclosed, warm upper glow
+    const councilBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(10 + t * 20);
+      const g = Math.floor(8 + t * 15);
+      const b = Math.floor(5 + t * 8);
+      councilBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      councilBg.fillRect(0, y, 1280, 1);
+    }
+    // Warm lamplight from above
+    for (let y = 0; y < 200; y++) {
+      const t = 1 - y / 200;
+      councilBg.fillStyle(0xc4a45a, t * 0.1);
+      councilBg.fillRect(0, y, 1280, 1);
+    }
+    councilBg.generateTexture('council-bg', 1280, 720);
+    councilBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);
