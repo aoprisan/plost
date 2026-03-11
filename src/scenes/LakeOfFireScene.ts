@@ -15,11 +15,11 @@ export class LakeOfFireScene extends Phaser.Scene {
     // Background — use Doré engraving if available, otherwise procedural
     const bgKey = this.textures.exists('dore-satan-rises') ? 'dore-satan-rises' : 'lake-of-fire-bg';
     const bg = this.add.image(width / 2, height / 2, bgKey);
-    // Scale Doré illustration to cover the full viewport
+    // Scale Doré illustration to fit entirely within the viewport
     if (bgKey === 'dore-satan-rises') {
       const scaleX = width / bg.width;
       const scaleY = height / bg.height;
-      bg.setScale(Math.max(scaleX, scaleY));
+      bg.setScale(Math.min(scaleX, scaleY));
       bg.setTint(0xddaa88); // warm sepia tone
     }
 

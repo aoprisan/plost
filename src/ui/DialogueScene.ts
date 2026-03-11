@@ -20,6 +20,7 @@ export class DialogueScene extends Phaser.Scene {
 
   private isShowingChoices = false;
   private isAnimating = false;
+  private justSelectedChoice = false;
   private currentFullText = '';
   private charIndex = 0;
   private typewriterTimer?: Phaser.Time.TimerEvent;
@@ -35,6 +36,10 @@ export class DialogueScene extends Phaser.Scene {
 
   create(): void {
     const { width, height } = this.cameras.main;
+
+    // Ensure this overlay scene receives game object input
+    this.input.setTopOnly(false);
+    this.scene.bringToTop();
 
     // Semi-transparent dialogue box at the bottom
     this.dialogueBox = this.add.graphics();
@@ -74,7 +79,12 @@ export class DialogueScene extends Phaser.Scene {
     });
 
     // Click/tap to advance
-    this.input.on('pointerdown', () => {
+    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+      console.log('[DialogueScene] pointerdown', { x: pointer.x, y: pointer.y, isShowingChoices: this.isShowingChoices, isAnimating: this.isAnimating });
+      if (this.justSelectedChoice) {
+        this.justSelectedChoice = false;
+        return;
+      }
       if (this.isAnimating) {
         // Skip typewriter, show full text
         this.skipTypewriter();
@@ -207,6 +217,7 @@ export class DialogueScene extends Phaser.Scene {
         choiceText.setColor('#c4a45a');
       });
       choiceText.on('pointerdown', () => {
+        console.log('[DialogueScene] choice clicked', choice.index);
         this.selectChoice(choice.index);
       });
 
@@ -225,6 +236,7 @@ export class DialogueScene extends Phaser.Scene {
     recordChoice(`choice_${index}`);
     this.dialogueManager.choose(index);
     this.isShowingChoices = false;
+    this.justSelectedChoice = true;
     this.clearChoices();
     this.advanceDialogue();
   }
