@@ -51,6 +51,7 @@ export class BootScene extends Phaser.Scene {
       'dore-satan-throne':         'assets/illustrations/dore/paradise-lost-06.jpg',
       'dore-gates-of-hell':        'assets/illustrations/dore/paradise-lost-08.jpg',
       'dore-chaos':                'assets/illustrations/dore/paradise-lost-09.jpg',
+      'dore-heaven':               'assets/illustrations/dore/paradise-lost-10.jpg',
       'dore-satan-descends':       'assets/illustrations/dore/paradise-lost-12.jpg',
       'dore-satan-despair':        'assets/illustrations/dore/paradise-lost-13.jpg',
       'dore-satan-views-eden':     'assets/illustrations/dore/paradise-lost-14.jpg',
@@ -179,6 +180,26 @@ export class BootScene extends Phaser.Scene {
     }
     chaosBg.generateTexture('chaos-bg', 1280, 720);
     chaosBg.destroy();
+
+    // Heaven background — radiant golden-white, celestial light
+    const heavenBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Warm white fading to soft gold at the bottom
+      const r = Math.floor(220 - t * 80);
+      const g = Math.floor(215 - t * 90);
+      const b = Math.floor(200 - t * 100);
+      heavenBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      heavenBg.fillRect(0, y, 1280, 1);
+    }
+    // Central radiance burst from above
+    for (let y = 0; y < 300; y++) {
+      const t = 1 - y / 300;
+      heavenBg.fillStyle(0xfff8e0, t * 0.15);
+      heavenBg.fillRect(0, y, 1280, 1);
+    }
+    heavenBg.generateTexture('heaven-bg', 1280, 720);
+    heavenBg.destroy();
 
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
