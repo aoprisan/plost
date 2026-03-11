@@ -42,25 +42,26 @@ export class BootScene extends Phaser.Scene {
   }
 
   private loadIllustrations(): void {
+    const base = import.meta.env.BASE_URL;
     const illustrations: Record<string, string> = {
-      'dore-fall-of-rebels':       '/assets/illustrations/dore/paradise-lost-01.jpg',
-      'dore-satan-rises':          '/assets/illustrations/dore/paradise-lost-02.jpg',
-      'dore-fallen-angels-roused': '/assets/illustrations/dore/paradise-lost-03.jpg',
-      'dore-assembly':             '/assets/illustrations/dore/paradise-lost-05.jpg',
-      'dore-satan-throne':         '/assets/illustrations/dore/paradise-lost-06.jpg',
-      'dore-gates-of-hell':        '/assets/illustrations/dore/paradise-lost-08.jpg',
-      'dore-chaos':                '/assets/illustrations/dore/paradise-lost-09.jpg',
-      'dore-satan-descends':       '/assets/illustrations/dore/paradise-lost-12.jpg',
-      'dore-satan-despair':        '/assets/illustrations/dore/paradise-lost-13.jpg',
-      'dore-satan-views-eden':     '/assets/illustrations/dore/paradise-lost-14.jpg',
-      'dore-temptation-1':         '/assets/illustrations/dore/paradise-lost-36.jpg',
-      'dore-temptation-2':         '/assets/illustrations/dore/paradise-lost-37.jpg',
-      'dore-temptation-3':         '/assets/illustrations/dore/paradise-lost-38.jpg',
-      'dore-expulsion':            '/assets/illustrations/dore/paradise-lost-49.jpg',
+      'dore-fall-of-rebels':       'assets/illustrations/dore/paradise-lost-01.jpg',
+      'dore-satan-rises':          'assets/illustrations/dore/paradise-lost-02.jpg',
+      'dore-fallen-angels-roused': 'assets/illustrations/dore/paradise-lost-03.jpg',
+      'dore-assembly':             'assets/illustrations/dore/paradise-lost-05.jpg',
+      'dore-satan-throne':         'assets/illustrations/dore/paradise-lost-06.jpg',
+      'dore-gates-of-hell':        'assets/illustrations/dore/paradise-lost-08.jpg',
+      'dore-chaos':                'assets/illustrations/dore/paradise-lost-09.jpg',
+      'dore-satan-descends':       'assets/illustrations/dore/paradise-lost-12.jpg',
+      'dore-satan-despair':        'assets/illustrations/dore/paradise-lost-13.jpg',
+      'dore-satan-views-eden':     'assets/illustrations/dore/paradise-lost-14.jpg',
+      'dore-temptation-1':         'assets/illustrations/dore/paradise-lost-36.jpg',
+      'dore-temptation-2':         'assets/illustrations/dore/paradise-lost-37.jpg',
+      'dore-temptation-3':         'assets/illustrations/dore/paradise-lost-38.jpg',
+      'dore-expulsion':            'assets/illustrations/dore/paradise-lost-49.jpg',
     };
 
     for (const [key, path] of Object.entries(illustrations)) {
-      this.load.image(key, path);
+      this.load.image(key, `${base}${path}`);
     }
 
     // Don't fail if illustrations haven't been downloaded yet
