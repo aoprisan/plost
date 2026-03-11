@@ -117,6 +117,25 @@ export class BootScene extends Phaser.Scene {
     pandBg.generateTexture('pandemonium-bg', 1280, 720);
     pandBg.destroy();
 
+    // Council chamber background — darker, more enclosed, warm upper glow
+    const councilBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(10 + t * 20);
+      const g = Math.floor(8 + t * 15);
+      const b = Math.floor(5 + t * 8);
+      councilBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      councilBg.fillRect(0, y, 1280, 1);
+    }
+    // Warm lamplight from above
+    for (let y = 0; y < 200; y++) {
+      const t = 1 - y / 200;
+      councilBg.fillStyle(0xc4a45a, t * 0.1);
+      councilBg.fillRect(0, y, 1280, 1);
+    }
+    councilBg.generateTexture('council-bg', 1280, 720);
+    councilBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);
