@@ -282,6 +282,30 @@ export class BootScene extends Phaser.Scene {
     soliloquyBg.generateTexture('satan-soliloquy-bg', 1280, 720);
     soliloquyBg.destroy();
 
+    // Temptation background — intimate garden clearing, forbidden tree, warm-dark
+    const temptBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Deep green canopy overhead fading to warm earth below
+      const r = Math.floor(10 + t * 25);
+      const g = Math.floor(20 + (1 - t) * 30 + t * 15);
+      const b = Math.floor(8 + (1 - t) * 15);
+      temptBg.fillStyle(Phaser.Display.Color.GetColor(
+        Math.max(0, Math.min(255, r)),
+        Math.max(0, Math.min(255, g)),
+        Math.max(0, Math.min(255, b))
+      ));
+      temptBg.fillRect(0, y, 1280, 1);
+    }
+    // Warm forbidden-fruit glow at centre
+    for (let y = 100; y < 400; y++) {
+      const t = 1 - Math.abs(y - 250) / 150;
+      temptBg.fillStyle(0xc44a1a, Math.max(0, t * 0.04));
+      temptBg.fillRect(400, y, 480, 1);
+    }
+    temptBg.generateTexture('temptation-bg', 1280, 720);
+    temptBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);
