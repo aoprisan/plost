@@ -48,6 +48,7 @@ export class BootScene extends Phaser.Scene {
       'dore-satan-rises':          'assets/illustrations/dore/paradise-lost-02.jpg',
       'dore-fallen-angels-roused': 'assets/illustrations/dore/paradise-lost-03.jpg',
       'dore-assembly':             'assets/illustrations/dore/paradise-lost-05.jpg',
+      'dore-council':              'assets/illustrations/dore/paradise-lost-05.jpg',
       'dore-satan-throne':         'assets/illustrations/dore/paradise-lost-06.jpg',
       'dore-gates-of-hell':        'assets/illustrations/dore/paradise-lost-08.jpg',
       'dore-chaos':                'assets/illustrations/dore/paradise-lost-09.jpg',
@@ -220,6 +221,153 @@ export class BootScene extends Phaser.Scene {
     }
     satanLandsBg.generateTexture('satan-lands-bg', 1280, 720);
     satanLandsBg.destroy();
+
+    // Garden of Eden background — lush greens, golden sunlight, paradise
+    const edenBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Sky: warm golden-blue fading to rich green at the ground
+      const r = Math.floor(40 + (1 - t) * 60 - t * 20);
+      const g = Math.floor(60 + t * 50 + (1 - t) * 30);
+      const b = Math.floor(20 + (1 - t) * 50 - t * 10);
+      edenBg.fillStyle(Phaser.Display.Color.GetColor(
+        Math.max(0, Math.min(255, r)),
+        Math.max(0, Math.min(255, g)),
+        Math.max(0, Math.min(255, b))
+      ));
+      edenBg.fillRect(0, y, 1280, 1);
+    }
+    // Warm sunlight from above
+    for (let y = 0; y < 250; y++) {
+      const t = 1 - y / 250;
+      edenBg.fillStyle(0xfff8c0, t * 0.08);
+      edenBg.fillRect(0, y, 1280, 1);
+    }
+    // Ground — rich earth tones
+    for (let y = 550; y < 720; y++) {
+      const t = (y - 550) / 170;
+      edenBg.fillStyle(0x2a3a0a, t * 0.3);
+      edenBg.fillRect(0, y, 1280, 1);
+    }
+    edenBg.generateTexture('garden-of-eden-bg', 1280, 720);
+    edenBg.destroy();
+
+    // Satan's Soliloquy background — barren mountaintop at dawn, warm horizon
+    const soliloquyBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Dawn sky: deep indigo at top, warming to amber near horizon
+      const r = Math.floor(15 + t * 60 + Math.max(0, (0.4 - Math.abs(t - 0.4)) * 120));
+      const g = Math.floor(10 + t * 30 + Math.max(0, (0.4 - Math.abs(t - 0.4)) * 50));
+      const b = Math.floor(25 + (1 - t) * 30);
+      soliloquyBg.fillStyle(Phaser.Display.Color.GetColor(
+        Math.max(0, Math.min(255, r)),
+        Math.max(0, Math.min(255, g)),
+        Math.max(0, Math.min(255, b))
+      ));
+      soliloquyBg.fillRect(0, y, 1280, 1);
+    }
+    // Sunrise glow on the right
+    for (let x = 800; x < 1280; x++) {
+      const t = (x - 800) / 480;
+      soliloquyBg.fillStyle(0xffcc66, t * 0.06);
+      soliloquyBg.fillRect(x, 0, 1, 400);
+    }
+    // Dark mountain base
+    for (let y = 500; y < 720; y++) {
+      const t = (y - 500) / 220;
+      soliloquyBg.fillStyle(0x0a0a15, 0.3 + t * 0.5);
+      soliloquyBg.fillRect(0, y, 1280, 1);
+    }
+    soliloquyBg.generateTexture('satan-soliloquy-bg', 1280, 720);
+    soliloquyBg.destroy();
+
+    // Temptation background — intimate garden clearing, forbidden tree, warm-dark
+    const temptBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Deep green canopy overhead fading to warm earth below
+      const r = Math.floor(10 + t * 25);
+      const g = Math.floor(20 + (1 - t) * 30 + t * 15);
+      const b = Math.floor(8 + (1 - t) * 15);
+      temptBg.fillStyle(Phaser.Display.Color.GetColor(
+        Math.max(0, Math.min(255, r)),
+        Math.max(0, Math.min(255, g)),
+        Math.max(0, Math.min(255, b))
+      ));
+      temptBg.fillRect(0, y, 1280, 1);
+    }
+    // Warm forbidden-fruit glow at centre
+    for (let y = 100; y < 400; y++) {
+      const t = 1 - Math.abs(y - 250) / 150;
+      temptBg.fillStyle(0xc44a1a, Math.max(0, t * 0.04));
+      temptBg.fillRect(400, y, 480, 1);
+    }
+    temptBg.generateTexture('temptation-bg', 1280, 720);
+    temptBg.destroy();
+
+    // The Fall background — Eden darkening, ominous golden-brown
+    const fallBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(20 + t * 30);
+      const g = Math.floor(18 + (1 - t) * 20 + t * 10);
+      const b = Math.floor(8 + (1 - t) * 10);
+      fallBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      fallBg.fillRect(0, y, 1280, 1);
+    }
+    // Fruit glow at centre
+    for (let y = 150; y < 450; y++) {
+      const t = 1 - Math.abs(y - 300) / 150;
+      fallBg.fillStyle(0xc44a1a, Math.max(0, t * 0.06));
+      fallBg.fillRect(350, y, 580, 1);
+    }
+    fallBg.generateTexture('the-fall-bg', 1280, 720);
+    fallBg.destroy();
+
+    // Judgment background — sombre garden, divine light from above
+    const judgBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(30 + (1 - t) * 40);
+      const g = Math.floor(25 + (1 - t) * 35);
+      const b = Math.floor(20 + (1 - t) * 30);
+      judgBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      judgBg.fillRect(0, y, 1280, 1);
+    }
+    // Divine light column from above
+    for (let y = 0; y < 350; y++) {
+      const t = 1 - y / 350;
+      judgBg.fillStyle(0xfff8dd, t * 0.06);
+      judgBg.fillRect(450, y, 380, 1);
+    }
+    judgBg.generateTexture('judgment-bg', 1280, 720);
+    judgBg.destroy();
+
+    // Expulsion background — gate on left, barren world on right
+    const expBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(35 + t * 15);
+      const g = Math.floor(32 + t * 12);
+      const b = Math.floor(28 + t * 8);
+      expBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      expBg.fillRect(0, y, 1280, 1);
+    }
+    // Gate fire glow on the left
+    for (let x = 0; x < 200; x++) {
+      const t = 1 - x / 200;
+      expBg.fillStyle(0xc44a1a, t * 0.08);
+      expBg.fillRect(x, 0, 1, 720);
+    }
+    // Dawn light on the right
+    for (let x = 900; x < 1280; x++) {
+      const t = (x - 900) / 380;
+      expBg.fillStyle(0xddccaa, t * 0.05);
+      expBg.fillRect(x, 0, 1, 720);
+    }
+    expBg.generateTexture('expulsion-bg', 1280, 720);
+    expBg.destroy();
 
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
