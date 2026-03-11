@@ -5,6 +5,9 @@ import { LakeOfFireScene } from './scenes/LakeOfFireScene';
 import { PandemoniumScene } from './scenes/PandemoniumScene';
 import { CouncilScene } from './scenes/CouncilScene';
 import { GatesOfHellScene } from './scenes/GatesOfHellScene';
+import { ChaosScene } from './scenes/ChaosScene';
+import { HeavenScene } from './scenes/HeavenScene';
+import { SatanLandsScene } from './scenes/SatanLandsScene';
 import { DialogueScene } from './ui/DialogueScene';
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -17,7 +20,7 @@ const config: Phaser.Types.Core.GameConfig = {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  scene: [BootScene, MainMenuScene, LakeOfFireScene, PandemoniumScene, CouncilScene, GatesOfHellScene, DialogueScene],
+  scene: [BootScene, MainMenuScene, LakeOfFireScene, PandemoniumScene, CouncilScene, GatesOfHellScene, ChaosScene, HeavenScene, SatanLandsScene, DialogueScene],
 };
 
 new Phaser.Game(config);

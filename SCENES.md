@@ -1,16 +1,16 @@
 # Remaining Scenes
 
-Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumScene → CouncilScene → GatesOfHellScene → ???
+Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumScene → CouncilScene → GatesOfHellScene → ChaosScene → HeavenScene → SatanLandsScene → ???
 
 ## Book II
 
 - [x] **Gates of Hell** — Satan encounters Sin and Death, his own offspring, guarding Hell's gates. They open the way for him.
-- [ ] **Chaos** — Satan's perilous flight through the formless void between Hell and the created world.
+- [x] **Chaos** — Satan's perilous flight through the formless void between Hell and the created world.
 
 ## Book III
 
-- [ ] **Heaven** — God observes Satan's journey and foretells Man's fall. The Son volunteers to redeem humanity.
-- [ ] **Satan Lands on Earth** — Satan alights on the outer shell of the universe, disguises himself, and descends to Eden.
+- [x] **Heaven** — God observes Satan's journey and foretells Man's fall. The Son volunteers to redeem humanity.
+- [x] **Satan Lands on Earth** — Satan alights on the outer shell of the universe, disguises himself, and descends to Eden.
 
 ## Book IV
 

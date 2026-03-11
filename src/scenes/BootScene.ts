@@ -51,6 +51,7 @@ export class BootScene extends Phaser.Scene {
       'dore-satan-throne':         'assets/illustrations/dore/paradise-lost-06.jpg',
       'dore-gates-of-hell':        'assets/illustrations/dore/paradise-lost-08.jpg',
       'dore-chaos':                'assets/illustrations/dore/paradise-lost-09.jpg',
+      'dore-heaven':               'assets/illustrations/dore/paradise-lost-10.jpg',
       'dore-satan-descends':       'assets/illustrations/dore/paradise-lost-12.jpg',
       'dore-satan-despair':        'assets/illustrations/dore/paradise-lost-13.jpg',
       'dore-satan-views-eden':     'assets/illustrations/dore/paradise-lost-14.jpg',
@@ -158,6 +159,67 @@ export class BootScene extends Phaser.Scene {
     }
     gatesBg.generateTexture('gates-of-hell-bg', 1280, 720);
     gatesBg.destroy();
+
+    // Chaos background — formless void, swirling darkness with elemental conflict
+    const chaosBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Deep void — near-black with shifting undertones
+      const r = Math.floor(5 + Math.sin(t * 3.14) * 12);
+      const g = Math.floor(5 + Math.sin(t * 2.5 + 1) * 8);
+      const b = Math.floor(8 + Math.sin(t * 2.0 + 2) * 10);
+      chaosBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      chaosBg.fillRect(0, y, 1280, 1);
+    }
+    // Faint elemental streaks
+    for (let i = 0; i < 8; i++) {
+      const streakY = 90 * i;
+      const colors = [0xc44a1a, 0x2244aa, 0x553322, 0x445544];
+      chaosBg.fillStyle(colors[i % 4], 0.04);
+      chaosBg.fillRect(0, streakY, 1280, 60);
+    }
+    chaosBg.generateTexture('chaos-bg', 1280, 720);
+    chaosBg.destroy();
+
+    // Heaven background — radiant golden-white, celestial light
+    const heavenBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Warm white fading to soft gold at the bottom
+      const r = Math.floor(220 - t * 80);
+      const g = Math.floor(215 - t * 90);
+      const b = Math.floor(200 - t * 100);
+      heavenBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      heavenBg.fillRect(0, y, 1280, 1);
+    }
+    // Central radiance burst from above
+    for (let y = 0; y < 300; y++) {
+      const t = 1 - y / 300;
+      heavenBg.fillStyle(0xfff8e0, t * 0.15);
+      heavenBg.fillRect(0, y, 1280, 1);
+    }
+    heavenBg.generateTexture('heaven-bg', 1280, 720);
+    heavenBg.destroy();
+
+    // Satan Lands background — deep cosmic blue with starfield and Earth glow
+    const satanLandsBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Dark blue-black cosmos, warming slightly toward Earth at bottom
+      const r = Math.floor(5 + t * 15);
+      const g = Math.floor(8 + t * 25);
+      const b = Math.floor(20 + t * 20 - t * t * 30);
+      satanLandsBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      satanLandsBg.fillRect(0, y, 1280, 1);
+    }
+    // Earth glow at the bottom
+    for (let y = 550; y < 720; y++) {
+      const t = (y - 550) / 170;
+      satanLandsBg.fillStyle(0x44aa66, t * 0.08);
+      satanLandsBg.fillRect(0, y, 1280, 1);
+    }
+    satanLandsBg.generateTexture('satan-lands-bg', 1280, 720);
+    satanLandsBg.destroy();
 
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
