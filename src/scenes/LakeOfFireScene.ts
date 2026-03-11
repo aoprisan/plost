@@ -87,7 +87,7 @@ export class LakeOfFireScene extends Phaser.Scene {
   private async startDialogue(): Promise<void> {
     this.dialogueManager = new DialogueManager();
 
-    const response = await fetch('/assets/dialogue/book1-lake-of-fire.json');
+    const response = await fetch(`${import.meta.env.BASE_URL}assets/dialogue/book1-lake-of-fire.json`);
     const storyJson = await response.json();
     this.dialogueManager.loadStory(JSON.stringify(storyJson));
 
