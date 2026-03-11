@@ -12,8 +12,16 @@ export class LakeOfFireScene extends Phaser.Scene {
   create(): void {
     const { width, height } = this.cameras.main;
 
-    // Background
-    this.add.image(width / 2, height / 2, 'lake-of-fire-bg');
+    // Background — use Doré engraving if available, otherwise procedural
+    const bgKey = this.textures.exists('dore-satan-rises') ? 'dore-satan-rises' : 'lake-of-fire-bg';
+    const bg = this.add.image(width / 2, height / 2, bgKey);
+    // Scale Doré illustration to cover the full viewport
+    if (bgKey === 'dore-satan-rises') {
+      const scaleX = width / bg.width;
+      const scaleY = height / bg.height;
+      bg.setScale(Math.max(scaleX, scaleY));
+      bg.setTint(0xddaa88); // warm sepia tone
+    }
 
     // Animated fire glow at bottom
     const fireGlow = this.add.graphics();
@@ -31,15 +39,17 @@ export class LakeOfFireScene extends Phaser.Scene {
       },
     });
 
-    // Satan figure
+    // Character silhouettes — only shown when using procedural background
+    const useDore = bgKey === 'dore-satan-rises';
     const satan = this.add.image(width * 0.35, height * 0.65, 'satan-silhouette')
       .setScale(2.5)
-      .setAlpha(0);
+      .setAlpha(0)
+      .setVisible(!useDore);
 
-    // Beelzebub figure
     const beelzebub = this.add.image(width * 0.6, height * 0.68, 'beelzebub-silhouette')
       .setScale(2)
-      .setAlpha(0);
+      .setAlpha(0)
+      .setVisible(!useDore);
 
     // Floating embers
     this.createEmbers();
