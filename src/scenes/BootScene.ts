@@ -48,6 +48,7 @@ export class BootScene extends Phaser.Scene {
       'dore-satan-rises':          'assets/illustrations/dore/paradise-lost-02.jpg',
       'dore-fallen-angels-roused': 'assets/illustrations/dore/paradise-lost-03.jpg',
       'dore-assembly':             'assets/illustrations/dore/paradise-lost-05.jpg',
+      'dore-council':              'assets/illustrations/dore/paradise-lost-05.jpg',
       'dore-satan-throne':         'assets/illustrations/dore/paradise-lost-06.jpg',
       'dore-gates-of-hell':        'assets/illustrations/dore/paradise-lost-08.jpg',
       'dore-chaos':                'assets/illustrations/dore/paradise-lost-09.jpg',
