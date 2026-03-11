@@ -1,6 +1,6 @@
 # Remaining Scenes
 
-Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumScene → CouncilScene → GatesOfHellScene → ChaosScene → HeavenScene → ???
+Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumScene → CouncilScene → GatesOfHellScene → ChaosScene → HeavenScene → SatanLandsScene → ???
 
 ## Book II
 
@@ -10,7 +10,7 @@ Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumSce
 ## Book III
 
 - [x] **Heaven** — God observes Satan's journey and foretells Man's fall. The Son volunteers to redeem humanity.
-- [ ] **Satan Lands on Earth** — Satan alights on the outer shell of the universe, disguises himself, and descends to Eden.
+- [x] **Satan Lands on Earth** — Satan alights on the outer shell of the universe, disguises himself, and descends to Eden.
 
 ## Book IV
 

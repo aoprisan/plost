@@ -201,6 +201,26 @@ export class BootScene extends Phaser.Scene {
     heavenBg.generateTexture('heaven-bg', 1280, 720);
     heavenBg.destroy();
 
+    // Satan Lands background — deep cosmic blue with starfield and Earth glow
+    const satanLandsBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Dark blue-black cosmos, warming slightly toward Earth at bottom
+      const r = Math.floor(5 + t * 15);
+      const g = Math.floor(8 + t * 25);
+      const b = Math.floor(20 + t * 20 - t * t * 30);
+      satanLandsBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      satanLandsBg.fillRect(0, y, 1280, 1);
+    }
+    // Earth glow at the bottom
+    for (let y = 550; y < 720; y++) {
+      const t = (y - 550) / 170;
+      satanLandsBg.fillStyle(0x44aa66, t * 0.08);
+      satanLandsBg.fillRect(0, y, 1280, 1);
+    }
+    satanLandsBg.generateTexture('satan-lands-bg', 1280, 720);
+    satanLandsBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);
