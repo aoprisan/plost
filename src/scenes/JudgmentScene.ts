@@ -145,12 +145,10 @@ export class JudgmentScene extends Phaser.Scene {
     serpent.lineStyle(2.5, 0x3a5a2a, 0.5);
     serpent.beginPath();
     serpent.moveTo(width * 0.55, height * 0.72);
-    serpent.splineTo([
-      width * 0.57, height * 0.7,
-      width * 0.54, height * 0.68,
-      width * 0.58, height * 0.66,
-      width * 0.55, height * 0.64,
-    ]);
+    serpent.lineTo(width * 0.57, height * 0.7);
+    serpent.lineTo(width * 0.54, height * 0.68);
+    serpent.lineTo(width * 0.58, height * 0.66);
+    serpent.lineTo(width * 0.55, height * 0.64);
     serpent.strokePath();
 
     // Head flat to ground
@@ -186,11 +184,9 @@ export class JudgmentScene extends Phaser.Scene {
     bridge.lineStyle(1.5, 0x8a3a1a, 0.15);
     bridge.beginPath();
     bridge.moveTo(width, height * 0.85);
-    bridge.splineTo([
-      width * 0.9, height * 0.82,
-      width * 0.85, height * 0.8,
-      width * 0.82, height * 0.78,
-    ]);
+    bridge.lineTo(width * 0.9, height * 0.82);
+    bridge.lineTo(width * 0.85, height * 0.8);
+    bridge.lineTo(width * 0.82, height * 0.78);
     bridge.strokePath();
 
     // Hellfire glow at the far end

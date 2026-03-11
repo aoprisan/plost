@@ -206,7 +206,9 @@ export class TemptationScene extends Phaser.Scene {
     serpent.lineStyle(2.5, 0x4a8a3a, 0.7);
     serpent.beginPath();
     serpent.moveTo(8, 0);
-    serpent.splineTo([10, -10, 8, -20, 4, -28]);
+    serpent.lineTo(10, -10);
+    serpent.lineTo(8, -20);
+    serpent.lineTo(4, -28);
     serpent.strokePath();
 
     // Head — small diamond shape

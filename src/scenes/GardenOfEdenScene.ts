@@ -119,24 +119,20 @@ export class GardenOfEdenScene extends Phaser.Scene {
     // Main river
     rivers.beginPath();
     rivers.moveTo(width * 0.3, height);
-    rivers.splineTo([
-      width * 0.35, height * 0.85,
-      width * 0.4, height * 0.75,
-      width * 0.38, height * 0.65,
-      width * 0.45, height * 0.55,
-    ]);
+    rivers.lineTo(width * 0.35, height * 0.85);
+    rivers.lineTo(width * 0.4, height * 0.75);
+    rivers.lineTo(width * 0.38, height * 0.65);
+    rivers.lineTo(width * 0.45, height * 0.55);
     rivers.strokePath();
 
     // Branch river
     rivers.lineStyle(1.5, 0x6688aa, 0.2);
     rivers.beginPath();
     rivers.moveTo(width * 0.45, height * 0.55);
-    rivers.splineTo([
-      width * 0.55, height * 0.6,
-      width * 0.65, height * 0.7,
-      width * 0.75, height * 0.85,
-      width * 0.8, height,
-    ]);
+    rivers.lineTo(width * 0.55, height * 0.6);
+    rivers.lineTo(width * 0.65, height * 0.7);
+    rivers.lineTo(width * 0.75, height * 0.85);
+    rivers.lineTo(width * 0.8, height);
     rivers.strokePath();
 
     rivers.setAlpha(0);
