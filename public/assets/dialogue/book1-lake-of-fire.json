@@ -1,0 +1,72 @@
+{
+  "inkVersion": 21,
+  "root": [
+    ["ev", "str", "^You open your eyes. Pain — vast, unimaginable — courses through every fibre of your being.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+      {"c-0": ["\n",
+        ["ev", "str", "^The fall seems to last an eternity. Nine days and nine nights you fell, cast from the radiant heights.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+          {"c-0": ["\n",
+            ["ev", "str", "^Around you: a lake of liquid fire. Above: no stars, only darkness absolute.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+              {"c-0": ["\n",
+                ["ev", "str", "^Beside you, a familiar shape stirs — Beelzebub, your closest lieutenant.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                  {"c-0": ["\n", "#speaker:Satan",
+                    "ev", "str", "^What... what has become of us?", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                    {"c-0": ["\n", "#speaker:Beelzebub",
+                      "ev", "str", "^My Lord... we are fallen. Cast down. But you live.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                      {"c-0": ["\n",
+                        "ev", "str", "^How do you respond?", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                        {"c-0": ["\n",
+                          ["ev", {"^->": ".^.^.c-0.0.$r1"}, "str", "^\"Is this... all that remains? This burning prison?\"", "/str", "/ev", {"*": ".^.c-0", "flg": 22},
+                            {"c-0": ["^ ", {"->": ".^.^.^.g-0"}, "\n"],
+                              "$r1": {"->": ".^.^.^.g-0"}
+                            }
+                          ],
+                          ["ev", {"^->": ".^.^.c-1.0.$r1"}, "str", "^\"We are not defeated. We are FREE.\"", "/str", "/ev", {"*": ".^.c-1", "flg": 22},
+                            {"c-1": ["^ ", {"->": ".^.^.^.g-1"}, "\n"],
+                              "$r1": {"->": ".^.^.^.g-1"}
+                            }
+                          ],
+                          ["ev", {"^->": ".^.^.c-2.0.$r1"}, "str", "^Survey your surroundings in silence.", "/str", "/ev", {"*": ".^.c-2", "flg": 22},
+                            {"c-2": ["^ ", {"->": ".^.^.^.g-2"}, "\n"],
+                              "$r1": {"->": ".^.^.^.g-2"}
+                            }
+                          ],
+                          {"g-0": ["\n", "#speaker:Beelzebub",
+                            "ev", "str", "^\"A prison, yes. But not the end. You led us once — you can lead us still.\"", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                            {"c-0": ["\n", {"->": ".^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.join"}]}
+                          ],
+                          {"g-1": ["\n", "#speaker:Beelzebub",
+                            "ev", "str", "^Beelzebub's eyes widen. A spark of the old fire returns to his gaze.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                            {"c-0": ["\n", "#speaker:Beelzebub",
+                              "ev", "str", "^\"Free... yes. What is Heaven's light to those who can make their own?\"", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                              {"c-0": ["\n", {"->": ".^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.join"}]}
+                            ]}
+                          ],
+                          {"g-2": ["\n",
+                            "ev", "str", "^You rise slowly. The landscape stretches endlessly — jagged obsidian shores, rivers of molten sulphur, and in the distance, shapes. Thousands of them. Your army, broken but breathing.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                            {"c-0": ["\n", "#speaker:Beelzebub",
+                              "ev", "str", "^\"They await your word, my Lord. As always.\"", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+                              {"c-0": ["\n", {"->": ".^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.^.join"}]}
+                            ]}
+                          ]
+                        }
+                      ]}
+                    ]}
+                  ]}
+                ]}
+              ]}
+            ]}
+          ]}
+        ],
+        {"join": [
+          "ev", "str", "^You stand. The pain recedes — not gone, but mastered. You are Satan, the Adversary, and this is only the beginning.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+          {"c-0": ["\n",
+            "ev", "str", "^The lake of fire stretches before you. What was once punishment shall become your throne room.", "/str", "/ev", {"*": ".^.c-0", "flg": 18},
+            {"c-0": ["\n", "end", ["done", {"#n": "g-3"}], null]}
+          ]}
+        ]}
+      ]}
+    ],
+    "done", null
+  ],
+  "listDefs": {}
+}

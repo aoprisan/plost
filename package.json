@@ -1,0 +1,29 @@
+{
+  "name": "plost",
+  "version": "1.0.0",
+  "description": "Paradise Lost: The Fallen — An adventure game from the fallen angels' perspective",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:41933/git/aoprisan/plost"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "howler": "^2.2.4",
+    "inkjs": "^2.4.0",
+    "phaser": "^3.90.0",
+    "zustand": "^5.0.11"
+  },
+  "devDependencies": {
+    "@types/node": "^25.4.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}
