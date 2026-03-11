@@ -34,8 +34,41 @@ export class BootScene extends Phaser.Scene {
       loadingText.destroy();
     });
 
+    // Load Doré illustrations (falls back to generated placeholders if missing)
+    this.loadIllustrations();
+
     // Generate placeholder textures programmatically
     this.generatePlaceholderAssets();
+  }
+
+  private loadIllustrations(): void {
+    const illustrations: Record<string, string> = {
+      'dore-fall-of-rebels':       '/assets/illustrations/01-fall-of-rebels.jpg',
+      'dore-war-in-heaven':        '/assets/illustrations/00-war-in-heaven.jpg',
+      'dore-satan-rises':          '/assets/illustrations/02-satan-rises-from-lake.jpg',
+      'dore-fallen-angels-roused': '/assets/illustrations/03-fallen-angels-roused.jpg',
+      'dore-assembly':             '/assets/illustrations/05-assembly-of-fallen.jpg',
+      'dore-satan-throne':         '/assets/illustrations/06-satan-on-throne.jpg',
+      'dore-gates-of-hell':        '/assets/illustrations/08-gates-of-hell.jpg',
+      'dore-chaos':                '/assets/illustrations/09-journey-through-chaos.jpg',
+      'dore-satan-descends':       '/assets/illustrations/12-satan-descends.jpg',
+      'dore-satan-despair':        '/assets/illustrations/13-satan-despair.jpg',
+      'dore-satan-views-eden':     '/assets/illustrations/14-satan-views-eden.jpg',
+      'dore-temptation-1':         '/assets/illustrations/36-temptation-1.jpg',
+      'dore-temptation-2':         '/assets/illustrations/37-temptation-2.jpg',
+      'dore-temptation-3':         '/assets/illustrations/38-temptation-3.jpg',
+      'dore-expulsion':            '/assets/illustrations/49-expulsion.jpg',
+      'dore-satan-profile':        '/assets/illustrations/satan-profile.jpg',
+    };
+
+    for (const [key, path] of Object.entries(illustrations)) {
+      this.load.image(key, path);
+    }
+
+    // Don't fail if illustrations haven't been downloaded yet
+    this.load.on('loaderror', (file: Phaser.Loader.File) => {
+      console.warn(`Optional asset not found: ${file.key} — using placeholder`);
+    });
   }
 
   private generatePlaceholderAssets(): void {
