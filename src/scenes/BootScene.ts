@@ -136,6 +136,29 @@ export class BootScene extends Phaser.Scene {
     councilBg.generateTexture('council-bg', 1280, 720);
     councilBg.destroy();
 
+    // Gates of Hell background — cold void meeting hellfire, ominous threshold
+    const gatesBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Transition from cold blue-black (void above) to warm dark red (hellfire below)
+      const r = Math.floor(8 + t * 30);
+      const g = Math.floor(8 + (1 - t) * 15);
+      const b = Math.floor(12 + (1 - t) * 25);
+      gatesBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      gatesBg.fillRect(0, y, 1280, 1);
+    }
+    // Hellfire glow at the bottom
+    for (let y = 520; y < 720; y++) {
+      const t = (y - 520) / 200;
+      const r = Math.floor(100 + t * 96);
+      const g = Math.floor(30 + t * 20);
+      const b = Math.floor(8);
+      gatesBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b), 0.15 + t * 0.35);
+      gatesBg.fillRect(0, y, 1280, 1);
+    }
+    gatesBg.generateTexture('gates-of-hell-bg', 1280, 720);
+    gatesBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);
