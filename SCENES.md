@@ -1,6 +1,6 @@
 # Remaining Scenes
 
-Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumScene → CouncilScene → GatesOfHellScene → ChaosScene → HeavenScene → SatanLandsScene → ???
+Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumScene → CouncilScene → GatesOfHellScene → ChaosScene → HeavenScene → SatanLandsScene → GardenOfEdenScene → ???
 
 ## Book II
 
@@ -14,7 +14,7 @@ Current flow: BootScene → MainMenuScene → LakeOfFireScene → PandemoniumSce
 
 ## Book IV
 
-- [ ] **Garden of Eden** — Satan sees Paradise for the first time. He observes Adam and Eve and wrestles with envy and regret.
+- [x] **Garden of Eden** — Satan sees Paradise for the first time. He observes Adam and Eve and wrestles with envy and regret.
 - [ ] **Satan's Soliloquy** — "Which way I fly is Hell; myself am Hell." Satan's internal struggle on Mount Niphates.
 - [ ] **The Temptation Begins** — Satan takes the form of a serpent and approaches Eve.
 

@@ -222,6 +222,36 @@ export class BootScene extends Phaser.Scene {
     satanLandsBg.generateTexture('satan-lands-bg', 1280, 720);
     satanLandsBg.destroy();
 
+    // Garden of Eden background — lush greens, golden sunlight, paradise
+    const edenBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Sky: warm golden-blue fading to rich green at the ground
+      const r = Math.floor(40 + (1 - t) * 60 - t * 20);
+      const g = Math.floor(60 + t * 50 + (1 - t) * 30);
+      const b = Math.floor(20 + (1 - t) * 50 - t * 10);
+      edenBg.fillStyle(Phaser.Display.Color.GetColor(
+        Math.max(0, Math.min(255, r)),
+        Math.max(0, Math.min(255, g)),
+        Math.max(0, Math.min(255, b))
+      ));
+      edenBg.fillRect(0, y, 1280, 1);
+    }
+    // Warm sunlight from above
+    for (let y = 0; y < 250; y++) {
+      const t = 1 - y / 250;
+      edenBg.fillStyle(0xfff8c0, t * 0.08);
+      edenBg.fillRect(0, y, 1280, 1);
+    }
+    // Ground — rich earth tones
+    for (let y = 550; y < 720; y++) {
+      const t = (y - 550) / 170;
+      edenBg.fillStyle(0x2a3a0a, t * 0.3);
+      edenBg.fillRect(0, y, 1280, 1);
+    }
+    edenBg.generateTexture('garden-of-eden-bg', 1280, 720);
+    edenBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);
