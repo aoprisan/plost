@@ -252,6 +252,36 @@ export class BootScene extends Phaser.Scene {
     edenBg.generateTexture('garden-of-eden-bg', 1280, 720);
     edenBg.destroy();
 
+    // Satan's Soliloquy background — barren mountaintop at dawn, warm horizon
+    const soliloquyBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      // Dawn sky: deep indigo at top, warming to amber near horizon
+      const r = Math.floor(15 + t * 60 + Math.max(0, (0.4 - Math.abs(t - 0.4)) * 120));
+      const g = Math.floor(10 + t * 30 + Math.max(0, (0.4 - Math.abs(t - 0.4)) * 50));
+      const b = Math.floor(25 + (1 - t) * 30);
+      soliloquyBg.fillStyle(Phaser.Display.Color.GetColor(
+        Math.max(0, Math.min(255, r)),
+        Math.max(0, Math.min(255, g)),
+        Math.max(0, Math.min(255, b))
+      ));
+      soliloquyBg.fillRect(0, y, 1280, 1);
+    }
+    // Sunrise glow on the right
+    for (let x = 800; x < 1280; x++) {
+      const t = (x - 800) / 480;
+      soliloquyBg.fillStyle(0xffcc66, t * 0.06);
+      soliloquyBg.fillRect(x, 0, 1, 400);
+    }
+    // Dark mountain base
+    for (let y = 500; y < 720; y++) {
+      const t = (y - 500) / 220;
+      soliloquyBg.fillStyle(0x0a0a15, 0.3 + t * 0.5);
+      soliloquyBg.fillRect(0, y, 1280, 1);
+    }
+    soliloquyBg.generateTexture('satan-soliloquy-bg', 1280, 720);
+    soliloquyBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);

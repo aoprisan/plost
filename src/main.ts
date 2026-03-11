@@ -9,6 +9,7 @@ import { ChaosScene } from './scenes/ChaosScene';
 import { HeavenScene } from './scenes/HeavenScene';
 import { SatanLandsScene } from './scenes/SatanLandsScene';
 import { GardenOfEdenScene } from './scenes/GardenOfEdenScene';
+import { SatanSoliloquyScene } from './scenes/SatanSoliloquyScene';
 import { DialogueScene } from './ui/DialogueScene';
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -21,7 +22,7 @@ const config: Phaser.Types.Core.GameConfig = {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  scene: [BootScene, MainMenuScene, LakeOfFireScene, PandemoniumScene, CouncilScene, GatesOfHellScene, ChaosScene, HeavenScene, SatanLandsScene, GardenOfEdenScene, DialogueScene],
+  scene: [BootScene, MainMenuScene, LakeOfFireScene, PandemoniumScene, CouncilScene, GatesOfHellScene, ChaosScene, HeavenScene, SatanLandsScene, GardenOfEdenScene, SatanSoliloquyScene, DialogueScene],
 };
 
 new Phaser.Game(config);
