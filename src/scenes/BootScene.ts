@@ -306,6 +306,69 @@ export class BootScene extends Phaser.Scene {
     temptBg.generateTexture('temptation-bg', 1280, 720);
     temptBg.destroy();
 
+    // The Fall background — Eden darkening, ominous golden-brown
+    const fallBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(20 + t * 30);
+      const g = Math.floor(18 + (1 - t) * 20 + t * 10);
+      const b = Math.floor(8 + (1 - t) * 10);
+      fallBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      fallBg.fillRect(0, y, 1280, 1);
+    }
+    // Fruit glow at centre
+    for (let y = 150; y < 450; y++) {
+      const t = 1 - Math.abs(y - 300) / 150;
+      fallBg.fillStyle(0xc44a1a, Math.max(0, t * 0.06));
+      fallBg.fillRect(350, y, 580, 1);
+    }
+    fallBg.generateTexture('the-fall-bg', 1280, 720);
+    fallBg.destroy();
+
+    // Judgment background — sombre garden, divine light from above
+    const judgBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(30 + (1 - t) * 40);
+      const g = Math.floor(25 + (1 - t) * 35);
+      const b = Math.floor(20 + (1 - t) * 30);
+      judgBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      judgBg.fillRect(0, y, 1280, 1);
+    }
+    // Divine light column from above
+    for (let y = 0; y < 350; y++) {
+      const t = 1 - y / 350;
+      judgBg.fillStyle(0xfff8dd, t * 0.06);
+      judgBg.fillRect(450, y, 380, 1);
+    }
+    judgBg.generateTexture('judgment-bg', 1280, 720);
+    judgBg.destroy();
+
+    // Expulsion background — gate on left, barren world on right
+    const expBg = this.make.graphics({ x: 0, y: 0 });
+    for (let y = 0; y < 720; y++) {
+      const t = y / 720;
+      const r = Math.floor(35 + t * 15);
+      const g = Math.floor(32 + t * 12);
+      const b = Math.floor(28 + t * 8);
+      expBg.fillStyle(Phaser.Display.Color.GetColor(r, g, b));
+      expBg.fillRect(0, y, 1280, 1);
+    }
+    // Gate fire glow on the left
+    for (let x = 0; x < 200; x++) {
+      const t = 1 - x / 200;
+      expBg.fillStyle(0xc44a1a, t * 0.08);
+      expBg.fillRect(x, 0, 1, 720);
+    }
+    // Dawn light on the right
+    for (let x = 900; x < 1280; x++) {
+      const t = (x - 900) / 380;
+      expBg.fillStyle(0xddccaa, t * 0.05);
+      expBg.fillRect(x, 0, 1, 720);
+    }
+    expBg.generateTexture('expulsion-bg', 1280, 720);
+    expBg.destroy();
+
     // Satan silhouette — tall, imposing figure
     const satanGraphics = this.make.graphics({ x: 0, y: 0 });
     satanGraphics.fillStyle(0x1a1a1a);
